@@ -33,7 +33,18 @@ void solve()
 {
     int n, k;
     cin >> n >> k;
-
+    sieve(n);
+    int count = 0;
+    for(int i = 0; i + 1 < primes.size(); ++i)
+    {
+        int sum = primes[i] + primes[i + 1] + 1;
+        if(sum <= n && bs[sum])
+            count++;
+    }
+    if(count >= k)
+        cout<<"YES\n";
+    else
+        cout<<"NO\n";
 }
 
 int main(void)
